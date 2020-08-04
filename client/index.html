@@ -1,0 +1,15 @@
+<input type="text" id="message">
+<button id="send"> send </button>
+
+<script>
+    document.getElementById("send").addEventListener("click", function () {
+        const message = document.getElementById("message").value
+        fetch("/.netlify/functions/send", {
+            method: "POST",
+            body: message
+        }).then(r => r.json()).then(response => {
+            alert("okay")
+        }).catch(error => alert(error))
+    })
+
+</script>
